@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PocSharedFile.MainPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:IsStringNotNullOrEmptyConverter x:Key="IsStringNotNullOrEmptyConverter" />
+            <toolkit:IntToBoolConverter x:Key="IntToBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="10"
+            Spacing="25">
+
+            <Entry Placeholder="token" Text="{Binding Token}" HorizontalOptions="FillAndExpand"/>
+            <Entry Placeholder="code"  Text="{Binding DistributorCode}" HorizontalOptions="FillAndExpand"/>
+
+            <Picker Title="redirectService" ItemsSource="{Binding Services}" SelectedIndex="{Binding PickerIndex}" HorizontalOptions="FillAndExpand">
+                <Picker.Behaviors>
+                    <toolkit:EventToCommandBehavior EventName="SelectedIndexChanged" Command="{Binding PickerChangeIndexCommand}"/>
+                </Picker.Behaviors>
+            </Picker>
+
+            <Editor Placeholder="body" Text="{Binding Body}" HorizontalOptions="FillAndExpand" HeightRequest="300"/>
+
+            <Button Text="Submit" Command="{Binding SubmitCommand}" HorizontalOptions="CenterAndExpand" WidthRequest="200" HeightRequest="40"/>
+            <Button Text="Copiar Response" Command="{Binding CopyToClipboardCommand}" HorizontalOptions="CenterAndExpand" WidthRequest="200" HeightRequest="40" IsVisible="{Binding Response, Converter={StaticResource IsStringNotNullOrEmptyConverter}}"/>
+
+            <Label Text="{Binding ErrorCode, StringFormat='errorCode: {0}'}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="{Binding ErrorCode, Converter={StaticResource IntToBoolConverter}}" />
+            <Label Text="{Binding ErrorCodeDescription, StringFormat='errorCodeDescription: {0}'}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="{Binding ErrorCodeDescription, Converter={StaticResource IsStringNotNullOrEmptyConverter}}" />
+            <Label Text="{Binding ExceptionMessage, StringFormat='exceptionMessage: {0}'}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="{Binding ExceptionMessage, Converter={StaticResource IsStringNotNullOrEmptyConverter}}"/>
+            <Label Text="fvIntentActionName: br.com.share.SEND_REQUEST" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <Label Text="fvPackage: br.com.share" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <Label Text="fvClassName: br.com.share.DataReceiver" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <Label Text="{Binding DataReceiver.RedirectService, StringFormat='redirectService: {0}'}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="{Binding  DataReceiver.RedirectService, Converter={StaticResource IntToBoolConverter}}"/>
+            <Label Text="{Binding StatusCode, StringFormat='httpStatusCode: {0}'}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="{Binding StatusCode, Converter={StaticResource IntToBoolConverter}}"/>
+            <Label Text="{Binding ReasonPhrase, StringFormat='reasonPhrase: {0}'}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="{Binding ReasonPhrase, Converter={StaticResource IsStringNotNullOrEmptyConverter}}"/>
+            <Label Text="{Binding Response, StringFormat='response: {0}'}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="{Binding Response, Converter={StaticResource IsStringNotNullOrEmptyConverter}}"/>
+
+            
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

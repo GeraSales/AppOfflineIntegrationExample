@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PocSharedFile
+﻿namespace PocSharedFile
 {
     public static class Constants
     {
         public const string FV_INTENT_ACTION_NAME = "fvIntentActionName";
         public const string BODY = "body";
+        public const string OPTIONAL_BODY = "optionalBody";
         public const string RESPONSE = "response";
         public const string TOKEN = "token";
         public const string FV_PACKAGE = "fvPackage";
@@ -19,6 +14,7 @@ namespace PocSharedFile
         public const string EXCEPTION_MESSAGE = "exceptionMessage";
         public const string GERA_RECEIVER_CLASS_NAME = "br.com.gera.gerapromo.DataReceiver";
         public const string INCLUDE_OPTIONS = "includeOptions";
+        public const string OPTIONAL_INCLUDE_OPTIONS = "optionalIncludeOptions";
         public const string ERROR_CODE = "errorCode";
         public const string NO_INTERNET_CONNECTION = "noInternetConnection";
         public const string HTTP_STATUS_CODE = "httpStatusCode";

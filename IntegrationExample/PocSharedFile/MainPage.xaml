@@ -25,7 +25,60 @@
                 </Picker.Behaviors>
             </Picker>
 
+
+
+            <VerticalStackLayout IsVisible="{Binding IncludeOptionsIsVisible}">
+                <Label Text="Include Options:" FontSize="Small" VerticalTextAlignment="Center"/>
+
+                <HorizontalStackLayout>
+                    <CheckBox IsChecked="{Binding AwardsIsChecked}"/>
+                    <Label Text="Awards" FontSize="Small" VerticalTextAlignment="Center"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <CheckBox IsChecked="{Binding RequirementsIsChecked}" />
+                    <Label Text="Requirements" FontSize="Small" VerticalTextAlignment="Center"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <CheckBox IsChecked="{Binding TargetTypeProductsIsChecked}" />
+                    <Label Text="TargetTypeProducts" FontSize="Small" VerticalTextAlignment="Center"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout IsVisible="{Binding ApplyIncludeOptionsIsVisible}">
+                    <CheckBox IsChecked="{Binding ConsiderAllIndustriesIsChecked}"/>
+                    <Label Text="ConsiderAllIndustries" FontSize="Small"  VerticalTextAlignment="Center"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout IsVisible="{Binding ApplyIncludeOptionsIsVisible}">
+                    <CheckBox IsChecked="{Binding ReturnNotAcquiredPromotionsIsChecked}"/>
+                    <Label Text="ReturnNotAcquiredPromotions " FontSize="Small"  VerticalTextAlignment="Center"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout IsVisible="{Binding OptionalIncludeOptionsIsVisible}">
+                <Label Text="Optional Include Options:" FontSize="Small" VerticalTextAlignment="Center"/>
+
+                <HorizontalStackLayout>
+                    <CheckBox IsChecked="{Binding OptionalAwardsIsChecked}"/>
+                    <Label Text="Awards" FontSize="Small" VerticalTextAlignment="Center"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <CheckBox IsChecked="{Binding OptionalRequirementsIsChecked}" />
+                    <Label Text="Requirements" FontSize="Small" VerticalTextAlignment="Center"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <CheckBox IsChecked="{Binding OptionalTargetTypeProductsIsChecked}" />
+                    <Label Text="TargetTypeProducts" FontSize="Small" VerticalTextAlignment="Center"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <CheckBox IsChecked="{Binding OptionalConsiderAllIndustriesIsChecked}"/>
+                    <Label Text="ConsiderAllIndustries" FontSize="Small"  VerticalTextAlignment="Center"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <CheckBox IsChecked="{Binding OptionalReturnNotAcquiredPromotionsIsChecked}"/>
+                    <Label Text="ReturnNotAcquiredPromotions " FontSize="Small"  VerticalTextAlignment="Center"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
             <Editor Placeholder="body" Text="{Binding Body}" HorizontalOptions="FillAndExpand" HeightRequest="300"/>
+            <Editor Placeholder="optionalBody" Text="{Binding OptionalBody}" HorizontalOptions="FillAndExpand" HeightRequest="300" IsVisible="{Binding OptionalBodyIsVisible}"/>
 
             <Button Text="Submit" Command="{Binding SubmitCommand}" HorizontalOptions="CenterAndExpand" WidthRequest="200" HeightRequest="40"/>
             <Button Text="Copiar Response" Command="{Binding CopyToClipboardCommand}" HorizontalOptions="CenterAndExpand" WidthRequest="200" HeightRequest="40" IsVisible="{Binding Response, Converter={StaticResource IsStringNotNullOrEmptyConverter}}"/>
@@ -41,7 +94,7 @@
             <Label Text="{Binding ReasonPhrase, StringFormat='reasonPhrase: {0}'}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="{Binding ReasonPhrase, Converter={StaticResource IsStringNotNullOrEmptyConverter}}"/>
             <Label Text="{Binding Response, StringFormat='response: {0}'}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="{Binding Response, Converter={StaticResource IsStringNotNullOrEmptyConverter}}"/>
 
-            
+
 
         </VerticalStackLayout>
     </ScrollView>

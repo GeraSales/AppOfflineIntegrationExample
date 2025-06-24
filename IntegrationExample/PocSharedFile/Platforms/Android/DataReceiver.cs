@@ -23,6 +23,7 @@ namespace PocSharedFile.Platforms.Android
                 ExceptionMessage = bundle?.GetString(Constants.EXCEPTION_MESSAGE),
                 ErrorCode = bundle?.GetInt(Constants.ERROR_CODE),
                 ErrorCodeDescription = bundle?.GetString(Constants.ERROR_CODE_DESCRIPTION),
+                RedirectService = bundle?.GetInt(Constants.REDIRECT_SERVICE),
             };
         }
 

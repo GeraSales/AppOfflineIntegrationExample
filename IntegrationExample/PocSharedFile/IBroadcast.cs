@@ -8,6 +8,6 @@ namespace PocSharedFile
 {
     public interface IBroadcast
     {
-        void SendRequest(DataReceiverModel data);       
+        void SendRequest(DataReceiverModel data, string[]? includeOptions = null, string[]? optionalIncludeOptions = null);
     }
 }

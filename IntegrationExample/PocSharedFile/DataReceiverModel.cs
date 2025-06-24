@@ -10,6 +10,7 @@ namespace PocSharedFile
     {
         public string? FvIntentActionName { get; set; }
         public string? Body { get; set; }
+        public string? OptionalBody { get; set; }
         public string? Response { get; set; }
         public string? Token { get; set; }
         public string? FvPackage { get; set; }
